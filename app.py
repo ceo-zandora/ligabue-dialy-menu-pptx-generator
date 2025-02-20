@@ -101,7 +101,7 @@ def replace_text_in_pptx(selected_data):
                                 run.text = ""  # Clear existing text
                             paragraph.runs[0].text = full_text
 
-    output_pptx = "updated_presentation.pptx"
+    output_pptx = f"{today_date}_menu.pptx"
     prs.save(output_pptx)
     print("--- Debug: PowerPoint Updated Successfully ---\n")
     return output_pptx
