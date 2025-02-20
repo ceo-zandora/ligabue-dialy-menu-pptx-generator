@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #003654;
+        }
+        .menu-list {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .menu-item {
+            padding: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input {
+            padding: 8px;
+            width: 100%;
+            margin-top: 5px;
+        }
+        button {
+            background-color: #003654;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #002244;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Menu Selection</h1>
+        <div class="menu-list">
+            {% for item in menu_items %}
+                <div class="menu-item">{{ item['index'] }} - {{ item['items'] }}</div>
+            {% endfor %}
+        </div>
+
+        <h2>Select Your Menu</h2>
+        <form method="POST">
+            {% for meal in ['breakfast', 'lunch', 'dinner'] %}
+                <h3>{{ meal.capitalize() }}</h3>
+                {% for i in range(1, 8 if meal == 'breakfast' else 9) %}
+                    <label>Item {{ i }}: <input type="text" name="{{ meal }}_{{ i }}"></label>
+                {% endfor %}
+            {% endfor %}
+            <button type="submit">Generate PowerPoint</button>
+        </form>
+    </div>
+</body>
+</html>
