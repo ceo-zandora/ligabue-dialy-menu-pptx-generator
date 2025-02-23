@@ -113,8 +113,8 @@ def index():
     if request.method == 'POST':
         selected_indices = {
             'breakfast': [request.form.get(f'breakfast_{i}') for i in range(1, 8)],
-            'lunch': [request.form.get(f'lunch_{i}') for i in range(1, 9)],
-            'dinner': [request.form.get(f'dinner_{i}') for i in range(1, 9)]
+            'lunch': [request.form.get(f'lunch_{i}') for i in range(1, 10)],
+            'dinner': [request.form.get(f'dinner_{i}') for i in range(1, 10)]
         }
 
         for meal, indexes in selected_indices.items():
