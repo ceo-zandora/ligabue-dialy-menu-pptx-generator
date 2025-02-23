@@ -74,7 +74,7 @@
         <form method="POST">
             {% for meal in ['breakfast', 'lunch', 'dinner'] %}
                 <h3>{{ meal.capitalize() }}</h3>
-                {% for i in range(1, 8 if meal == 'breakfast' else 9) %}
+                {% for i in range(1, 8 if meal == 'breakfast' else 10) %}
                     <label>Item {{ i }}: <input type="text" name="{{ meal }}_{{ i }}"></label>
                 {% endfor %}
             {% endfor %}
